@@ -733,3 +733,9 @@ endpoints:
       summaryModel: "togethercomputer/llama-2-7b-chat"
       forcePrompt: false
       modelDisplayLabel: "together.ai"
+
+ocr:
+  mistralModel: "mistral-ocr-latest"  # Optional: Specify Mistral model, defaults to "mistral-ocr-latest"
+  apiKey: "${MISTRAL_API_KEY}"        # Optional: Defaults to OCR_API_KEY env variable
+  baseURL: "https://api.mistral.ai/v1"  # Optional: Defaults to OCR_BASEURL env variable, or Mistral's API if no variable set
+  strategy: "mistral_ocr"               # Optional: Defaults to "mistral_ocr" (only option currently available)
