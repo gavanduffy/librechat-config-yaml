@@ -759,7 +759,6 @@ fileConfig:
         - "image/.*"
         - "application/pdf"
         - "text/x-c"
-        - "text/x-c++"
         - "text/x-csharp"
         - "text/css"
         - "application/msword"
