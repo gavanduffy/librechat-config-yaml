@@ -17,23 +17,7 @@ interface:
     - "github"
     - "google"
     - "openid"
-    
-mcpServers:
-  fileserver:
-    url: http://10.0.2.201:9898/sse
-  install:
-    type: stdio
-    command: npx
-    args:
-     - -y
-     - "@michaellatman/mcp-get@latest"
-     - "install "
-  timeout: 30000
-  initTimeout: 10000
-  env:
-    NODE_ENV: "production"
-  stderr: inherit
-    
+ 
 endpoints:
   custom:
     - name: "4EverLand"
