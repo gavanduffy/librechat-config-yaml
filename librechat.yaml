@@ -1,6 +1,6 @@
 version: 1.2.1
 
-cache: true
+cache: false
 
 interface:
 #   privacyPolicy:
@@ -10,69 +10,7 @@ interface:
 #     externalUrl: 'https://librechat.ai/tos'
 #     openNewTab: true
 
-fileConfig:
-  endpoints:
-    assistants:
-      fileLimit: 1000
-      fileSizeLimit: 1000
-      totalSizeLimit: 50000
-      supportedMimeTypes:
-        - "image/.*"
-        - "application/pdf"
-        - "text/x-c"
-        - "text/x-c++"
-        - "text/x-csharp"
-        - "text/css"
-        - "application/msword"
-        - "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-        - "text/x-golang"
-        - "text/html"
-        - "text/x-java"
-        - "text/javascript"
-        - "application/json"
-        - "text/markdown"
-        - "application/pdf"
-        - "text/x-php"
-        - "application/vnd.openxmlformats-officedocument.presentationml.presentation"
-        - "text/x-python"
-        - "text/x-script.python"
-        - "text/x-ruby"
-        - "application/x-sh"
-        - "text/x-tex"
-        - "application/typescript"
-        - "text/plain"
-    openAI:
-      fileSizeLimit: 1000
-      totalSizeLimit: 2000
-      supportedMimeTypes:
-        - "image/.*"
-        - "application/pdf"
-        - "text/x-c"
-        - "text/x-c++"
-        - "text/x-csharp"
-        - "text/css"
-        - "application/msword"
-        - "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-        - "text/x-golang"
-        - "text/html"
-        - "text/x-java"
-        - "text/javascript"
-        - "application/json"
-        - "text/markdown"
-        - "application/pdf"
-        - "text/x-php"
-        - "application/vnd.openxmlformats-officedocument.presentationml.presentation"
-        - "text/x-python"
-        - "text/x-script.python"
-        - "text/x-ruby"
-        - "application/x-sh"
-        - "text/x-tex"
-        - "application/typescript"
-        - "text/plain"
-  serverFileSizeLimit: 10000
-  avatarSizeLimit: 2
- 
-registration:
+ registration:
   socialLogins:
     - "discord"
     - "facebook"
@@ -99,9 +37,6 @@ mcpServers:
     
 endpoints:
   agents:
-    allowedProviders:
-   - openAI
-   - google
     capabilities:
       - "execute_code"
       - "file_search"
@@ -111,12 +46,6 @@ endpoints:
       - "ocr"
       - "chain"
    disableBuilder: false
-  google:
-    streamRate: 1
-    titleModel: "gemini-2.0-flash-lite"
-  openAI:
-    streamRate: 25
-    titleModel: "gpt-4o-mini"
   custom:
     - name: "4EverLand"
       iconURL: "https://raw.githubusercontent.com/gavanduffy/librechat-config-yaml/refs/heads/main/icons/4ever.png"
@@ -844,7 +773,41 @@ endpoints:
       summaryModel: "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"
       forcePrompt: false
       modelDisplayLabel: "together.ai"
-
+      
+fileConfig:
+  endpoints:
+    assistants:
+      fileLimit: 1000
+      fileSizeLimit: 1000
+      totalSizeLimit: 50000
+      supportedMimeTypes:
+        - "image/.*"
+        - "application/pdf"
+        - "text/x-c"
+        - "text/x-c++"
+        - "text/x-csharp"
+        - "text/css"
+        - "application/msword"
+        - "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        - "text/x-golang"
+        - "text/html"
+        - "text/x-java"
+        - "text/javascript"
+        - "application/json"
+        - "text/markdown"
+        - "application/pdf"
+        - "text/x-php"
+        - "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+        - "text/x-python"
+        - "text/x-script.python"
+        - "text/x-ruby"
+        - "application/x-sh"
+        - "text/x-tex"
+        - "application/typescript"
+        - "text/plain"
+  serverFileSizeLimit: 10000
+  avatarSizeLimit: 2
+ 
 ocr:
   mistralModel: "mistral-ocr-latest"  # Optional: Specify Mistral model, defaults to "mistral-ocr-latest"
   apiKey: "${MISTRAL_API_KEY}"        # Optional: Defaults to OCR_API_KEY env variable
