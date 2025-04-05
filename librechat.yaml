@@ -2,7 +2,7 @@ version: 1.2.1
 
 cache: true
 
-# interface:
+interface:
 #   privacyPolicy:
 #     externalUrl: 'https://librechat.ai/privacy-policy'
 #     openNewTab: true
@@ -10,6 +10,68 @@ cache: true
 #     externalUrl: 'https://librechat.ai/tos'
 #     openNewTab: true
 
+fileConfig:
+  endpoints:
+    assistants:
+      fileLimit: 1000
+      fileSizeLimit: 1000
+      totalSizeLimit: 50000
+      supportedMimeTypes:
+        - "image/.*"
+        - "application/pdf"
+        - "text/x-c"
+        - "text/x-c++"
+        - "text/x-csharp"
+        - "text/css"
+        - "application/msword"
+        - "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        - "text/x-golang"
+        - "text/html"
+        - "text/x-java"
+        - "text/javascript"
+        - "application/json"
+        - "text/markdown"
+        - "application/pdf"
+        - "text/x-php"
+        - "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+        - "text/x-python"
+        - "text/x-script.python"
+        - "text/x-ruby"
+        - "application/x-sh"
+        - "text/x-tex"
+        - "application/typescript"
+        - "text/plain"
+    openAI:
+      fileSizeLimit: 1000
+      totalSizeLimit: 2000
+      supportedMimeTypes:
+        - "image/.*"
+        - "application/pdf"
+        - "text/x-c"
+        - "text/x-c++"
+        - "text/x-csharp"
+        - "text/css"
+        - "application/msword"
+        - "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        - "text/x-golang"
+        - "text/html"
+        - "text/x-java"
+        - "text/javascript"
+        - "application/json"
+        - "text/markdown"
+        - "application/pdf"
+        - "text/x-php"
+        - "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+        - "text/x-python"
+        - "text/x-script.python"
+        - "text/x-ruby"
+        - "application/x-sh"
+        - "text/x-tex"
+        - "application/typescript"
+        - "text/plain"
+  serverFileSizeLimit: 10000
+  avatarSizeLimit: 2
+ 
 registration:
   socialLogins:
     - "discord"
@@ -17,12 +79,45 @@ registration:
     - "github"
     - "google"
     - "openid"
-
+    
+mcpServers:
+  fileserver:
+    url: http://10.0.2.201:9898/sse
+  install:
+    type: stdio
+    command: npx
+    args:
+     - -y
+     - "@michaellatman/mcp-get@latest"
+     - "install"
+  timeout: 30000
+  initTimeout: 10000
+  env:
+    NODE_ENV: "production"
+  stderr: inherit
+    
+    
 endpoints:
+  agents:
+    allowedProviders:
+   - openAI
+   - google
+    capabilities:
+      - "execute_code"
+      - "file_search"
+      - "actions"
+      - "tools"
+      - "artifacts"
+      - "ocr"
+      - "chain"
+   disableBuilder: false
+  google:
+    streamRate: 1
+    titleModel: "gemini-2.0-flash-lite"
+  openAI:
+    streamRate: 25
+    titleModel: "gpt-4o-mini"
   custom:
-    # APIpie
-    # https://apipie.ai/dashboard/
-    # Script to fetch models: https://github.com/LibreChat-AI/librechat-config-yaml/blob/main/scripts/apipie.py
     - name: "4EverLand"
       iconURL: "https://raw.githubusercontent.com/gavanduffy/librechat-config-yaml/refs/heads/main/icons/4ever.png"
       apiKey: "${4EVER_API_KEY}"
