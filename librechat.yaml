@@ -27,25 +27,14 @@ mcpServers:
     args:
      - -y
      - "@michaellatman/mcp-get@latest"
-     - "install"
+     - "install "
   timeout: 30000
   initTimeout: 10000
   env:
     NODE_ENV: "production"
   stderr: inherit
     
-    
 endpoints:
-  agents:
-    capabilities:
-      - "execute_code"
-      - "file_search"
-      - "actions"
-      - "tools"
-      - "artifacts"
-      - "ocr"
-      - "chain"
-   disableBuilder: false
   custom:
     - name: "4EverLand"
       iconURL: "https://raw.githubusercontent.com/gavanduffy/librechat-config-yaml/refs/heads/main/icons/4ever.png"
@@ -382,7 +371,7 @@ endpoints:
       iconURL: "https://raw.githubusercontent.com/gavanduffy/librechat-config-yaml/refs/heads/main/icons/OpenRouter.png"
       apiKey: "${OPENROUTER_KEY}"
       baseURL: "https://openrouter.ai/api/v1"
-     models:
+      models:
         default:
           - openrouter/auto
           - '---FREE---'
@@ -773,6 +762,8 @@ endpoints:
       summaryModel: "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"
       forcePrompt: false
       modelDisplayLabel: "together.ai"
+  agents:
+   disableBuilder: false
       
 fileConfig:
   endpoints:
