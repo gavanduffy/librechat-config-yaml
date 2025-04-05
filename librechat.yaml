@@ -125,7 +125,7 @@ endpoints:
         default:
           - AI21-Jamba-Instruct
           - Cohere-command-r
-          - Cohere-command-r-plus
+          - Cohere-command-r-plus-08-2024
           - Cohere-embed-v3-english
           - Cohere-embed-v3-multilingual
           - Meta-Llama-3-70B-Instruct
@@ -135,7 +135,7 @@ endpoints:
           - Meta-Llama-3.1-8B-Instruct
           - Mistral-Nemo
           - Mistral-large
-          - Mistral-large-2407
+          - Mistral-Large-2411
           - Mistral-small
           - Phi-3-medium-128k-instruct
           - Phi-3-medium-4k-instruct
@@ -144,13 +144,17 @@ endpoints:
           - Phi-3-small-128k-instruct
           - Phi-3-small-8k-instruct
           - Phi-3.5-mini-instruct
+          - Phi-4-multimodal-instruct
+          - DeepSeek-R1
+          - DeepSeek-v3
           - gpt-4o
           - gpt-4o-mini
+          - gpt-o3-mini
           - text-embedding-3-large
           - text-embedding-3-small
         fetch: false
       titleConvo: true
-      titleModel: "gpt-4o-mini"
+      titleModel: "gpt-o3-mini"
 
     # groq
     # Model list: https://console.groq.com/settings/limits
@@ -371,6 +375,7 @@ endpoints:
           - google/gemini-2.0-flash-thinking-exp-1219:free
           - google/gemini-2.0-flash-thinking-exp:free
           - google/gemini-2.0-pro-exp-02-05:free
+          - google/gemini-2.5-pro-exp-03-25:free
           - google/gemini-exp-1206:free
           - google/gemma-2-9b-it:free
           - google/gemma-3-12b-it:free
