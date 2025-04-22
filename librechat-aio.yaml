@@ -662,4 +662,44 @@ endpoints:
       summaryModel: "openchat/openchat-3.5-1210"
       forcePrompt: false
       modelDisplayLabel: "together.ai"
+  agents:
+   disableBuilder: false
       
+fileConfig:
+  endpoints:
+    assistants:
+      fileLimit: 1000
+      fileSizeLimit: 1000
+      totalSizeLimit: 50000
+      supportedMimeTypes:
+        - "image/.*"
+        - "application/pdf"
+        - "text/x-c"
+        - "text/x-csharp"
+        - "text/css"
+        - "application/msword"
+        - "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        - "text/x-golang"
+        - "text/html"
+        - "text/x-java"
+        - "text/javascript"
+        - "application/json"
+        - "text/markdown"
+        - "application/pdf"
+        - "text/x-php"
+        - "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+        - "text/x-python"
+        - "text/x-script.python"
+        - "text/x-ruby"
+        - "application/x-sh"
+        - "text/x-tex"
+        - "application/typescript"
+        - "text/plain"
+  serverFileSizeLimit: 10000
+  avatarSizeLimit: 2
+ 
+ocr:
+  mistralModel: "mistral-ocr-latest"  # Optional: Specify Mistral model, defaults to "mistral-ocr-latest"
+  apiKey: "${MISTRAL_API_KEY}"        # Optional: Defaults to OCR_API_KEY env variable
+  baseURL: "https://api.mistral.ai/v1"  # Optional: Defaults to OCR_BASEURL env variable, or Mistral's API if no variable set
+  strategy: "mistral_ocr"               # Optional: Defaults to "mistral_ocr" (only option currently available)
