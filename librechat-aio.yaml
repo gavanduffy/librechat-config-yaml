@@ -3,12 +3,16 @@ version: 1.2.1
 cache: true
 
 interface:
-  privacyPolicy:
-    externalUrl: 'https://librechat.ai/privacy-policy'
-    openNewTab: true
-  termsOfService:
-    externalUrl: 'https://librechat.ai/tos'
-    openNewTab: true
+  endpointsMenu: true
+  modelSelect: true
+  parameters: true
+  sidePanel: true
+  presets: true
+  prompts: true
+  bookmarks: true
+  multiConvo: true
+  agents: true
+  runCode: true
 
 registration:
   socialLogins:
@@ -20,6 +24,73 @@ registration:
 
 endpoints:
   custom:
+    - name: "4EverLand"
+      iconURL: "https://raw.githubusercontent.com/gavanduffy/librechat-config-yaml/refs/heads/main/icons/4ever.png"
+      apiKey: "${4EVER_API_KEY}"
+      baseURL: "https://ai.api.4everland.org/api/v1/"
+      models:
+        default:
+  	      - '---FREE---'
+          - agentica-org/deepcoder-14b-preview:free
+          - allenai/molmo-7b-d:free
+          - arliai/qwq-32b-arliai-rpr-v1:free
+          - bytedance-research/ui-tars-72b:free
+          - cognitivecomputations/dolphin3.0-mistral-24b:free
+          - cognitivecomputations/dolphin3.0-r1-mistral-24b:free
+          - deepseek/deepseek-chat-v3-0324:free
+          - deepseek/deepseek-chat:free
+          - deepseek/deepseek-r1-distill-llama-70b:free
+          - deepseek/deepseek-r1-distill-qwen-14b:free
+          - deepseek/deepseek-r1-distill-qwen-32b:free
+          - deepseek/deepseek-r1-zero:free
+          - deepseek/deepseek-r1:free
+          - deepseek/deepseek-v3-base:free
+          - featherless/qwerky-72b:free
+          - google/gemini-2.0-flash-exp:free
+          - google/gemini-2.0-flash-thinking-exp-1219:free
+          - google/gemini-2.0-flash-thinking-exp:free
+          - google/gemini-2.5-pro-exp-03-25:free
+          - google/gemma-2-9b-it:free
+          - google/gemma-3-12b-it:free
+          - google/gemma-3-1b-it:free
+          - google/gemma-3-27b-it:free
+          - google/gemma-3-4b-it:free
+          - google/learnlm-1.5-pro-experimental:free
+          - huggingfaceh4/zephyr-7b-beta:free
+          - meta-llama/llama-3.1-8b-instruct:free
+          - meta-llama/llama-3.2-11b-vision-instruct:free
+          - meta-llama/llama-3.2-1b-instruct:free
+          - meta-llama/llama-3.2-3b-instruct:free
+          - meta-llama/llama-3.3-70b-instruct:free
+          - meta-llama/llama-4-maverick:free
+          - meta-llama/llama-4-scout:free
+          - mistralai/mistral-7b-instruct:free
+          - mistralai/mistral-nemo:free
+          - mistralai/mistral-small-24b-instruct-2501:free
+          - mistralai/mistral-small-3.1-24b-instruct:free
+          - moonshotai/kimi-vl-a3b-thinking:free
+          - moonshotai/moonlight-16b-a3b-instruct:free
+          - nousresearch/deephermes-3-llama-3-8b-preview:free
+          - nvidia/llama-3.1-nemotron-70b-instruct:free
+          - nvidia/llama-3.1-nemotron-nano-8b-v1:free
+          - nvidia/llama-3.1-nemotron-ultra-253b-v1:free
+          - nvidia/llama-3.3-nemotron-super-49b-v1:free
+          - open-r1/olympiccoder-32b:free
+          - open-r1/olympiccoder-7b:free
+          - qwen/qwen-2.5-72b-instruct:free
+          - qwen/qwen-2.5-7b-instruct:free
+          - qwen/qwen-2.5-coder-32b-instruct:free
+          - qwen/qwen-2.5-vl-7b-instruct:free
+          - qwen/qwen2.5-vl-32b-instruct:free
+          - qwen/qwen2.5-vl-3b-instruct:free
+          - qwen/qwen2.5-vl-72b-instruct:free
+          - qwen/qwq-32b-preview:free
+          - qwen/qwq-32b:free
+          - rekaai/reka-flash-3:free
+          - sophosympatheia/rogue-rose-103b-v0.2:free
+        fetch: false
+      titleConvo: true
+      titleModel: "google/gemini-2.0-flash-exp"
     # cohere
     # Model list: https://dashboard.cohere.com/playground/chat
     - name: "cohere"
@@ -663,7 +734,9 @@ endpoints:
       forcePrompt: false
       modelDisplayLabel: "together.ai"
   agents:
-   disableBuilder: false
+    recursionLimit: 50
+    maxRecursionLimit: 100
+    disableBuilder: false
       
 fileConfig:
   endpoints:
